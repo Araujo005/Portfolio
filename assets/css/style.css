@@ -335,55 +335,148 @@ h3{
     border-radius: 5px;
 }
 /* ----- PROJECTS BOX ----- */
-.project-container{
+.project-container {
     display: flex;
     width: 100%;
     justify-content: space-between;
     gap: 20px;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Permite que as boxes se ajustem em várias linhas */
 }
-.project-box{
+
+.project-box {
     position: relative;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    flex-direction: column; /* Ordena os elementos na vertical */
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
     width: 31%;
     height: 250px;
     background: var(--color-white);
     border-radius: 20px;
     box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
     overflow: hidden;
+    text-align: center; /* Centraliza o texto horizontalmente */
+    padding: 20px; /* Espaçamento interno para evitar que o conteúdo toque nas bordas */
 }
-.project-box>i{
+
+.project-box > i {
     font-size: 50px;
     color: #00B5E7;
-    margin-bottom: 25px;
+    margin-bottom: 15px; /* Ajusta o espaço entre o ícone e os textos */
 }
-.project-box label{
+
+.project-box > h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px; /* Espaço entre o título e o label */
+}
+
+.project-box label {
     font-size: 15px;
     color: #777;
 }
-.project-box::after, .contact-info::after{
+
+.project-box::after {
     content: "";
     position: absolute;
     bottom: -100%;
     background: var(--second-color);
     width: 100%;
     height: 100%;
-    transition: .4s;
+    transition: 0.4s;
     z-index: 1;
 }
-.project-box:hover.project-box::after,
-.contact-info:hover.contact-info::after{
+
+.project-box:hover::after {
     bottom: 0;
 }
-.project-box:hover.project-box i,
-.project-box:hover.project-box>h3,
-.project-box:hover.project-box>label{
+
+.project-box:hover i,
+.project-box:hover h3,
+.project-box:hover label {
     color: var(--color-white);
     z-index: 2;
 }
+
+
+/* ----- Projetos ----- */
+
+.project-container {
+    display: flex;
+    flex-direction: column; /* Organiza as boxes verticalmente (uma embaixo da outra) */
+    width: 100%; /* Ocupa 100% da largura do site */
+    gap: 20px; /* Espaçamento entre as boxes */
+    flex-wrap: nowrap; /* Evita que as boxes "quebrem" em várias linhas */
+}
+
+.project-box {
+    position: relative;
+    display: flex;
+    flex-direction: column; /* Ordena os elementos na vertical */
+    justify-content: flex-start; /* Alinha o conteúdo ao topo */
+    align-items: center; /* Centraliza horizontalmente os textos e ícones */
+    width: 100%; /* A box ocupa 100% da largura do site */
+    max-width: 100%; /* Remove qualquer limitação de largura */
+    height: auto; /* Ajusta a altura automaticamente com base no conteúdo */
+    background: var(--color-white);
+    border-radius: 20px;
+    box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
+    overflow: hidden;
+    text-align: center; /* Centraliza texto e ícones */
+    padding: 20px; /* Espaçamento interno */
+}
+
+.project-box img {
+    padding-top: 15px;
+    width: 100%; /* A imagem ocupa toda a largura da box */
+    height: auto; /* Mantém a proporção da imagem */
+    border-radius: 10px; /* Bordas arredondadas (opcional) */
+    margin-bottom: 15px; /* Espaço entre a imagem e o restante do conteúdo */
+    object-fit: cover; /* Preenche o espaço sem distorções */
+}
+
+.project-box > i {
+    font-size: 50px;
+    color: #00B5E7;
+    margin-bottom: 15px; /* Ajusta o espaço entre o ícone e os textos */
+}
+
+.project-box > h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px; /* Espaço entre o título e o label */
+}
+
+.project-box label {
+    font-size: 15px;
+    color: #777;
+}
+
+.project-box::after {
+    content: "";
+    position: absolute;
+    bottom: -100%;
+    background: var(--second-color);
+    width: 100%;
+    height: 100%;
+    transition: 0.4s;
+    z-index: 1;
+}
+
+.project-box:hover::after {
+    bottom: 0;
+}
+
+.project-box:hover i,
+.project-box:hover h3,
+.project-box:hover label {
+    color: var(--color-white);
+    z-index: 2;
+}
+
+
+
+
 /* ----- CONTACT BOX ----- */
 .contact-info{
     position: relative;
@@ -422,6 +515,54 @@ h3{
     color: #777;
     z-index: 2;
 }
+
+div.gallery {
+  border: 1px solid #ccc;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.responsive {
+  padding: 0 6px;
+  float: left;
+  width: 24.99999%;
+}
+
+@media only screen and (max-width: 700px) {
+  .responsive {
+    width: 49.99999%;
+    margin: 6px 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .responsive {
+    width: 100%;
+  }
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 /* ----- CONTACT FORM ----- */
 .form-control{
     display: flex;
